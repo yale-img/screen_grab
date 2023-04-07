@@ -16,7 +16,7 @@
     <param name="x_offset" value="50" />
     <param name="y_offset" value="50" />
     <param name="width" value="$(arg width)" />
-    <param name="height" value="(arg height)" />
+    <param name="height" value="$(arg height)" />
   </node>
 
   <!-- image show takes much less cpu that image_view -->
