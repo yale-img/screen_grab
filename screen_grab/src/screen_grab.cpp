@@ -181,7 +181,7 @@ void ScreenGrab::onInit()
   // init
   // from vimjay screencap.cpp (https://github.com/lucasw/vimjay)
   {
-    display = XOpenDisplay(NULL);  // Open first (-best) display
+    display = XOpenDisplay(":1011");  // Open hard-coded display expected to be Xvfb
     if (display == NULL)
     {
       ROS_ERROR_STREAM("bad display");
