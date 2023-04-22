@@ -68,6 +68,7 @@ class ScreenGrab : public nodelet::Nodelet
   int screen_h_;
 
   std::string encoding_ = "bgra8";
+  std::string display_id_ = "";
 
   boost::recursive_mutex dr_mutex_;
 

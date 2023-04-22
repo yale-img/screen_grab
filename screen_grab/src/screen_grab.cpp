@@ -175,13 +175,25 @@ void ScreenGrab::updateConfig()
 
 void ScreenGrab::onInit()
 {
+  // Read param for display to capture
+  std::string display_id = "";
+  if (getPrivateNodeHandle().getParam("display_id", display_id))
+  {
+    display_id_ = display_id;
+    ROS_DEBUG_STREAM("display_id is " << display_id_);
+  }
+  else
+  {
+    ROS_WARN_STREAM("Could not set DISPLAY_ID parameter; check screen_grab.launch file");
+  }
+
   screen_pub_ = getNodeHandle().advertise<sensor_msgs::Image>(
                   "image", 5);
   // TODO(lucasw) move most of this into onInit
   // init
   // from vimjay screencap.cpp (https://github.com/lucasw/vimjay)
   {
-    display = XOpenDisplay(":1011");  // Open hard-coded display expected to be Xvfb
+    display = XOpenDisplay(display_id_.c_str());
     if (display == NULL)
     {
       ROS_ERROR_STREAM("bad display");
