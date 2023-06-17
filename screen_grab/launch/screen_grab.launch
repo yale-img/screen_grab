@@ -4,8 +4,8 @@
   <arg name="update_rate" default="5" />
   <arg name="use_image_show" default="false" />
   <arg name="use_image_view" default="false" />
-  <arg name="width" default="800" />
-  <arg name="height" default="480" />
+  <arg name="width" default="0" /> <!-- setting width < 1 grabs entire screen width" -->
+  <arg name="height" default="0" /> <!-- setting height < 1 grabs entire screen height" -->
   <arg name="display_id" default=":1011" />
   <arg name="sleep" default="5" />
 

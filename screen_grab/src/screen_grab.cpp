@@ -246,8 +246,8 @@ void ScreenGrab::onInit()
   update_rate_ = update_rate;
   x_offset_ = x_offset;
   y_offset_ = y_offset;
-  width_ = width;
-  height_ = height;
+  width_ = (width < 1) ? screen_w_ : width;
+  height_ = (height < 1) ? screen_h_ : height;
 
   // std::string encoding_str = "rgba8";
   // getPrivateNodeHandle().getParam("encoding", encoding_str);
