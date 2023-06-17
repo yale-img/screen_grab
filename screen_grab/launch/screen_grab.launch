@@ -7,12 +7,14 @@
   <arg name="width" default="800" />
   <arg name="height" default="480" />
   <arg name="display_id" default=":1011" />
+  <arg name="sleep" default="5" />
 
   <node name="nodelet_manager" pkg="nodelet" type="nodelet"
       args="manager" output="screen" />
 
   <node name="screen_grab" pkg="nodelet" type="nodelet"
-      args="load screen_grab/ScreenGrab nodelet_manager" output="screen" >
+    args="load screen_grab/ScreenGrab nodelet_manager"
+    launch-prefix="sh -c 'sleep $(arg sleep); $0 $@'" output="screen" >
     <param name="update_rate" value="$(arg update_rate)" />
     <param name="x_offset" value="50" />
     <param name="y_offset" value="50" />
