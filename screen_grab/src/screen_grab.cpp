@@ -180,6 +180,8 @@ void ScreenGrab::onInit()
   if (getPrivateNodeHandle().getParam("display_id", display_id))
   {
     display_id_ = display_id;
+    if (display_id_.at(0) != ':')
+      display_id_.insert(0, 1, ':');
     ROS_DEBUG_STREAM("display_id is " << display_id_);
   }
   else

@@ -6,7 +6,7 @@
   <arg name="use_image_view" default="false" />
   <arg name="width" default="0" /> <!-- setting width < 1 grabs entire screen width" -->
   <arg name="height" default="0" /> <!-- setting height < 1 grabs entire screen height" -->
-  <arg name="display_id" default=":1011" />
+  <arg name="display_id" default="1011" />
   <arg name="sleep" default="5" />
 
   <node name="nodelet_manager" pkg="nodelet" type="nodelet"
@@ -20,7 +20,7 @@
     <param name="y_offset" value="50" />
     <param name="width" value="$(arg width)" />
     <param name="height" value="$(arg height)" />
-    <param name="display_id" value="$(arg display_id)" />
+    <param name="display_id" type="str" value="$(arg display_id)" />
   </node>
 
   <!-- image show takes much less cpu that image_view -->
