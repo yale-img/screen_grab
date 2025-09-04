@@ -23,6 +23,11 @@
     <param name="display_id" type="str" value="$(arg display_id)" />
   </node>
 
+  <node name="rqt_image_view" pkg="rqt_image_view" type="rqt_image_view"
+      args="/image" output="screen"
+      if="$(arg use_rqt_image_view)" >
+  </node>
+
   <!-- image show takes much less cpu that image_view -->
   <node name="image_show1" pkg="nodelet" type="nodelet"
       args="load image_show/ImageShow nodelet_manager" output="screen"
